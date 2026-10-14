@@ -1,0 +1,11 @@
+# .github/metadata.yaml
+description: "Swift implementation of RFC 2231: MIME parameter value and encoded word extensions (continuations, character sets, languages)."
+topics:
+  - standards
+  - rfc
+  - rfc-2231
+  - mime
+  - email
+homepage: "https://swift-institute.org"
+readme:
+  family: E
