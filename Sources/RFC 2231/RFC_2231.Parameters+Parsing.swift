@@ -5,7 +5,7 @@ import RFC_4648
 
 extension RFC_2231.Parameters {
 
-    public init(_ attributes: some Sequence<(name: String, value: String)>) throws(RFC_2231.Parameter.Error) {
+    public init(_ attributes: some Swift::Sequence<(name: String, value: String)>) throws(RFC_2231.Parameter.Error) {
         var sections: [RFC_2231.Parameter.Section] = []
         for attribute in attributes {
             sections.append(try RFC_2231.Parameter.Section(attribute: attribute.name, value: attribute.value))
