@@ -3,7 +3,9 @@ import RFC_2231
 import RFC_5646
 import Testing
 
-extension RFC_2231.Charset {
+enum `RFC_2231.Charset Tests` {}
+
+extension `RFC_2231.Charset Tests` {
 
     @Suite
     struct Test {
@@ -13,7 +15,7 @@ extension RFC_2231.Charset {
     }
 }
 
-extension RFC_2231.Charset.Test.Unit {
+extension `RFC_2231.Charset Tests`.Test.Unit {
 
     @Test
     func `a language suffix is split from the charset`() throws {

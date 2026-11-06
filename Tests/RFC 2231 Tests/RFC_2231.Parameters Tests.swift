@@ -4,7 +4,9 @@ import RFC_2231
 import RFC_5646
 import Testing
 
-extension RFC_2231.Parameters {
+enum `RFC_2231.Parameters Tests` {}
+
+extension `RFC_2231.Parameters Tests` {
 
     @Suite
     struct Test {
@@ -21,7 +23,7 @@ extension RFC_2231.Parameters {
     }
 }
 
-extension RFC_2231.Parameters.Test.Unit {
+extension `RFC_2231.Parameters Tests`.Test.Unit {
 
     @Test
     func `continuations are joined in order`() throws {
@@ -31,7 +33,7 @@ extension RFC_2231.Parameters.Test.Unit {
         ])
 
         #expect(
-            RFC_2231.Parameters.Test.text(parameters["url"])
+            `RFC_2231.Parameters Tests`.Test.text(parameters["url"])
                 == "ftp://cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar"
         )
     }
@@ -42,7 +44,7 @@ extension RFC_2231.Parameters.Test.Unit {
             (name: "title*", value: "us-ascii'en-us'This%20is%20%2A%2A%2Afun%2A%2A%2A")
         ])
 
-        #expect(RFC_2231.Parameters.Test.text(parameters["title"]) == "This is ***fun***")
+        #expect(`RFC_2231.Parameters Tests`.Test.text(parameters["title"]) == "This is ***fun***")
         #expect(parameters["title"]?.charset == "US-ASCII")
         #expect(parameters["title"]?.language?.value == "en-US")
     }
@@ -55,7 +57,7 @@ extension RFC_2231.Parameters.Test.Unit {
             (name: "title*2", value: "isn't it!"),
         ])
 
-        #expect(RFC_2231.Parameters.Test.text(parameters["title"]) == "This is even more ***fun*** isn't it!")
+        #expect(`RFC_2231.Parameters Tests`.Test.text(parameters["title"]) == "This is even more ***fun*** isn't it!")
         #expect(parameters["title"]?.language?.value == "en")
     }
 
@@ -72,7 +74,7 @@ extension RFC_2231.Parameters.Test.Unit {
     func `a plain parameter passes through`() throws {
         let parameters = try RFC_2231.Parameters([(name: "Filename", value: "a.pdf")])
 
-        #expect(RFC_2231.Parameters.Test.text(parameters["filename"]) == "a.pdf")
+        #expect(`RFC_2231.Parameters Tests`.Test.text(parameters["filename"]) == "a.pdf")
         #expect(parameters["filename"]?.charset == nil)
     }
 
@@ -83,11 +85,11 @@ extension RFC_2231.Parameters.Test.Unit {
             (name: "filename*", value: "utf-8''real.pdf"),
         ])
 
-        #expect(RFC_2231.Parameters.Test.text(parameters["filename"]) == "real.pdf")
+        #expect(`RFC_2231.Parameters Tests`.Test.text(parameters["filename"]) == "real.pdf")
     }
 }
 
-extension RFC_2231.Parameters.Test.`Edge Case` {
+extension `RFC_2231.Parameters Tests`.Test.`Edge Case` {
 
     @Test
     func `a missing section is refused`() {
