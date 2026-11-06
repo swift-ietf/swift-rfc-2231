@@ -1,5 +1,6 @@
 import RFC_2045
 import RFC_2231
+import RFC_5646
 import Testing
 
 extension RFC_2231.Charset {
@@ -19,7 +20,7 @@ extension RFC_2231.Charset.Test.Unit {
         let charset = RFC_2231.Charset(try RFC_2045.Charset("US-ASCII*EN"))
 
         #expect(charset.name == "US-ASCII")
-        #expect(charset.language == "EN")
+        #expect(charset.language?.value == "en")
     }
 
     @Test

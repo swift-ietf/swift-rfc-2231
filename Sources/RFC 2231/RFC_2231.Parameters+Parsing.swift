@@ -2,6 +2,7 @@ import ASCII
 import Byte
 import RFC_2045
 import RFC_4648
+import RFC_5646
 
 extension RFC_2231.Parameters {
 
@@ -50,7 +51,7 @@ extension RFC_2231.Parameters {
     private static func initial(
         _ value: String,
         name: String
-    ) throws(RFC_2231.Parameter.Error) -> (RFC_2045.Charset?, String?, String) {
+    ) throws(RFC_2231.Parameter.Error) -> (RFC_2045.Charset?, RFC_5646.LanguageTag?, String) {
         let parts = value.split(separator: "'", maxSplits: 2, omittingEmptySubsequences: false)
         guard parts.count == 3 else {
             throw .missingCharsetDelimiter(name)
@@ -61,7 +62,7 @@ extension RFC_2231.Parameters {
         } catch {
             throw .invalidCharset(name)
         }
-        return (charset, parts[1].isEmpty ? nil : String(parts[1]), String(parts[2]))
+        return (charset, try? RFC_5646.LanguageTag(parts[1]), String(parts[2]))
     }
 
     private static func octets(

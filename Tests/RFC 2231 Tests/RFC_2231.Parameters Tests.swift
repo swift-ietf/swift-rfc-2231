@@ -1,6 +1,7 @@
 import Byte
 import RFC_2045
 import RFC_2231
+import RFC_5646
 import Testing
 
 extension RFC_2231.Parameters {
@@ -43,7 +44,7 @@ extension RFC_2231.Parameters.Test.Unit {
 
         #expect(RFC_2231.Parameters.Test.text(parameters["title"]) == "This is ***fun***")
         #expect(parameters["title"]?.charset == "US-ASCII")
-        #expect(parameters["title"]?.language == "en-us")
+        #expect(parameters["title"]?.language?.value == "en-US")
     }
 
     @Test
@@ -55,7 +56,7 @@ extension RFC_2231.Parameters.Test.Unit {
         ])
 
         #expect(RFC_2231.Parameters.Test.text(parameters["title"]) == "This is even more ***fun*** isn't it!")
-        #expect(parameters["title"]?.language == "en")
+        #expect(parameters["title"]?.language?.value == "en")
     }
 
     @Test

@@ -22,6 +22,7 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-byte.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-2045.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-5646.git", branch: "main"),
     ],
     targets: [
         .target(
@@ -31,6 +32,7 @@ let package = Package(
                 .product(name: "Byte", package: "swift-byte"),
                 .product(name: "RFC 2045", package: "swift-rfc-2045"),
                 .product(name: "RFC 4648", package: "swift-rfc-4648"),
+                .product(name: "RFC 5646", package: "swift-rfc-5646"),
             ]
         ),
         .testTarget(
@@ -39,6 +41,7 @@ let package = Package(
                 .target(name: "RFC 2231"),
                 .product(name: "Byte", package: "swift-byte"),
                 .product(name: "RFC 2045", package: "swift-rfc-2045"),
+                .product(name: "RFC 5646", package: "swift-rfc-5646"),
             ]
         ),
     ],
