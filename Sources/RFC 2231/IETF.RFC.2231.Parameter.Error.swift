@@ -1,4 +1,4 @@
-extension RFC_2231.Parameter {
+extension IETF.RFC.`2231`.Parameter {
 
     public enum Error: Swift.Error, Sendable, Equatable {
 

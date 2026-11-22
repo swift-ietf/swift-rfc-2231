@@ -1,6 +1,6 @@
-extension RFC_2231.Parameter.Section {
+extension IETF.RFC.`2231`.Parameter.Section {
 
-    init(attribute: String, value: String) throws(RFC_2231.Parameter.Error) {
+    init(attribute: String, value: String) throws(IETF.RFC.`2231`.Parameter.Error) {
         let lowered = attribute.lowercased()
         let isExtended = lowered.hasSuffix("*")
         let stem = isExtended ? String(lowered.dropLast()) : lowered

@@ -3,9 +3,9 @@ import RFC_2231
 import RFC_5646
 import Testing
 
-enum `RFC_2231.Charset Tests` {}
+enum `IETF.RFC.2231.Charset Tests` {}
 
-extension `RFC_2231.Charset Tests` {
+extension `IETF.RFC.2231.Charset Tests` {
 
     @Suite
     struct Test {
@@ -15,11 +15,11 @@ extension `RFC_2231.Charset Tests` {
     }
 }
 
-extension `RFC_2231.Charset Tests`.Test.Unit {
+extension `IETF.RFC.2231.Charset Tests`.Test.Unit {
 
     @Test
     func `a language suffix is split from the charset`() throws {
-        let charset = RFC_2231.Charset(try RFC_2045.Charset("US-ASCII*EN"))
+        let charset = IETF.RFC.`2231`.Charset(try IETF.RFC.`2045`.Charset("US-ASCII*EN"))
 
         #expect(charset.name == "US-ASCII")
         #expect(charset.language?.value == "en")
@@ -27,7 +27,7 @@ extension `RFC_2231.Charset Tests`.Test.Unit {
 
     @Test
     func `a charset without a language stays whole`() throws {
-        let charset = RFC_2231.Charset(try RFC_2045.Charset("UTF-8"))
+        let charset = IETF.RFC.`2231`.Charset(try IETF.RFC.`2045`.Charset("UTF-8"))
 
         #expect(charset.name == "UTF-8")
         #expect(charset.language == nil)
