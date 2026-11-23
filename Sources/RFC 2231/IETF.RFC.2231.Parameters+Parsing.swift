@@ -51,7 +51,7 @@ extension IETF.RFC.`2231`.Parameters {
     private static func initial(
         _ value: String,
         name: String
-    ) throws(IETF.RFC.`2231`.Parameter.Error) -> (IETF.RFC.`2045`.Charset?, IETF.RFC.`5646`.LanguageTag?, String) {
+    ) throws(IETF.RFC.`2231`.Parameter.Error) -> (IETF.RFC.`2045`.Charset?, IETF.RFC.`5646`.Tag?, String) {
         let parts = value.split(separator: "'", maxSplits: 2, omittingEmptySubsequences: false)
         guard parts.count == 3 else {
             throw .missingCharsetDelimiter(name)
@@ -62,7 +62,7 @@ extension IETF.RFC.`2231`.Parameters {
         } catch {
             throw .invalidCharset(name)
         }
-        return (charset, try? IETF.RFC.`5646`.LanguageTag(parts[1]), String(parts[2]))
+        return (charset, try? IETF.RFC.`5646`.Tag(parts[1]), String(parts[2]))
     }
 
     private static func octets(

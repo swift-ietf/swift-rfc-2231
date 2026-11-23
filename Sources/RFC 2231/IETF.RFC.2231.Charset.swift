@@ -7,9 +7,9 @@ extension IETF.RFC.`2231` {
 
         public let name: IETF.RFC.`2045`.Charset
 
-        public let language: IETF.RFC.`5646`.LanguageTag?
+        public let language: IETF.RFC.`5646`.Tag?
 
-        public init(name: IETF.RFC.`2045`.Charset, language: IETF.RFC.`5646`.LanguageTag?) {
+        public init(name: IETF.RFC.`2045`.Charset, language: IETF.RFC.`5646`.Tag?) {
             self.name = name
             self.language = language
         }

@@ -10,14 +10,14 @@ extension IETF.RFC.`2231` {
 
         public let charset: IETF.RFC.`2045`.Charset?
 
-        public let language: IETF.RFC.`5646`.LanguageTag?
+        public let language: IETF.RFC.`5646`.Tag?
 
         public let value: [Byte]
 
         public init(
             name: String,
             charset: IETF.RFC.`2045`.Charset?,
-            language: IETF.RFC.`5646`.LanguageTag?,
+            language: IETF.RFC.`5646`.Tag?,
             value: [Byte]
         ) {
             self.name = name
